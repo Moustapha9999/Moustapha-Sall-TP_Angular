@@ -1,0 +1,44 @@
+<h2 class="form mt-5">Formulaire d'ajout d'un produit</h2>
+
+<form class="form mt-5">
+
+
+<div class="form-floating mb-3">
+    <input [(ngModel)]="nproduit.nom" type="nom" class="form-control" name="nom" id="" placeholder="Saisir le nom du produit">
+    <label for="floatingInput">Nom</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input [(ngModel)]="nproduit.prix" type="prix" class="form-control" name="prix" id="" placeholder="Saisir le prix du produit">
+    <label for="floatingInput">Prix</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input [(ngModel)]="nproduit.quantite" type="quantite" class="form-control" name="quantite" id="" placeholder="Saisir la quantite du produit">
+    <label for="floatingInput">Quantite</label>
+  </div>
+  <div>
+    <button class="btn btn-primary en" (click)="addProduit()">Ajouter</button>
+  </div>
+</form>
+
+
+<table class="table col-md-8 offset-2 mt-5">
+    <thead class="table-light">
+      <th scope="col">ID</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Quantite</th>
+      <th scope="col">Actions</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produit of produits , index as i">
+        <td>{{i+1}}</td>
+        <td>{{produit.nom}}</td>
+        <td>{{produit.prix}}</td>
+        <td>{{produit.quantite}}</td>
+        <td>
+            <button class="btn btn-success"(click)="updateProduit(i)" >Modifier</button>
+            <button class="btn btn-danger" (click)="deleteProduit(i)">Supprimer</button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
